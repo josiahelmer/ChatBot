@@ -31,4 +31,8 @@ public class ChatView
 	{
 		JOptionPane.showInputDialog(null, displayText);
 	}
+
+	public String collectUserText(String string) {
+		return null;
+	}
 }

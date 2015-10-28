@@ -5,11 +5,21 @@ import chat.model.ChatBot;
 import chat.view.ChatView;
 
 
+
 public class ChatController
 {
 	private ChatBot simpleBot;
 	private ChatView display;
+	
+	public ChatController()
+	{
+		display = new ChatView();
+		String user = display.collectUserText("What is your name?");
+		simpleBot = new ChatBot(user);
+	}
+	
 	public void start()
+	
 	{
 		display.displayText("Hello" + simpleBot.getUserName());
 		chat();
