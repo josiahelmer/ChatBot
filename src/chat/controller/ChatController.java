@@ -1,9 +1,38 @@
 package chat.controller;
 
+
+import chat.model.ChatBot;
+import chat.view.ChatView;
+
+
 public class ChatController
 {
+	private ChatBot simpleBot;
+	private ChatView display;
 	public void start()
+	{
+		display.displayText("Hello" + simpleBot.getUserName());
+		chat();
+	}
+	
+	private void chat()
+	{
+		String conversation = display.collectUserText("What would you like to talk about today?");
+		while(simpleBot.lengthChecker(conversation))
+		{
+			if(simpleBot.lengthChecker(conversation))
+			{
+				display.displayText("Wow, I had no idea you loved " + simpleBot.getContent());
+			}
+			
+			conversation = display.collectUserText(conversation);
+		}
+	}
+	
+	private void shutDown()
 	{
 		
 	}
+	
+	
 }

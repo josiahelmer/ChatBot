@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Base version of the 2015 Chatbot class. Only stub methods are provided. Students will complete methods as part
  * of the project.
  * @author Josiah Elmer
- * @version 1.0 10/14/15
+ * @version 1.3 10/28/15 Built and called the buildMemesList. Repaired the getContentsMethod
  */
 public class ChatBot
 {
@@ -21,12 +21,21 @@ public class ChatBot
 	 */
 	public ChatBot(String userName)
 	{
-		
+		this.memesList = new ArrayList<String>();
+		this.politicalTopicList = new ArrayList<String>();
+		this.userName = userName;
+		this.content = "";
 	}
 	
 	private void buildMemesList()
 	{
-		
+		this.memesList.add("cute animals");
+		this.memesList.add("doge");
+		this.memesList.add("one does not simply");
+		this.memesList.add("pepperidge farm remembers");
+		this.memesList.add("am I the only one around here?");
+		this.memesList.add("fistpump baby");
+		this.memesList.add("");
 	}
 	
 	private void buildPoliticalTopicsList()
@@ -66,7 +75,14 @@ public class ChatBot
 	 */
 	public boolean contentChecker(String currentInput)
 	{
-		return false;
+		boolean hasContent = false;
+		
+		if(currentInput.toLowerCase().contains(content))
+		{
+			hasContent = true;
+		}
+		
+		return hasContent;
 	}
 	
 	/**
@@ -106,7 +122,7 @@ public class ChatBot
 	 */
 	public String getContent()
 	{
-		return null;
+		return content;
 	}
 	
 	/**
