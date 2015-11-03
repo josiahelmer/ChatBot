@@ -27,7 +27,7 @@ public class ChatBot
 		this.memesList = new ArrayList<String>();
 		this.politicalTopicList = new ArrayList<String>();
 		this.userName = Josiah;
-		this.content = "";
+		this.content = "Josiah";
 	}
 	
 	private void buildMemesList()
@@ -133,6 +133,50 @@ public class ChatBot
 	 * Returns the username of this Chatbot instance.
 	 * @return The username of the Chatbot.
 	 */
+	public String processQuestion(String currentInput)
+	{
+		String backTalk = "";
+		int randomTopic =(int) (Math.random() * 5); //Generates a rendom number betwwen 0 and 4
+		
+		switch (randomTopic)
+		{
+		case 0:
+			if(contentChecker(currentInput))
+			{
+				backTalk = "Thats a great topic! What else are you into?";
+			}
+			break;
+		case 1:
+			if(memeChecker(currentInput))
+			{
+				backTalk = "That is a popular meme this year! What is your favorite food?";
+			}
+			break;
+		case 2:
+			if(politicalTopicChecker(currentInput))
+			{
+				backTalk = "comment and a question";
+			}
+			break;
+		case 3:
+			if(currentInput.length() > 23)
+			{
+				backTalk = "comment and a question";
+			}
+			break;
+		case 4:
+			//Random topic for chat here
+			break;
+		default:
+			//Never will happen
+			
+			break;
+		}
+		
+		
+		return backTalk;
+		
+	}
 	public String getUserName()
 	{
 		return null;
