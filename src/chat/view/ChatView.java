@@ -16,7 +16,7 @@ public class ChatView
 	public ChatView()
 	{
 		windowMessage = "This message brought to you by the chatbot!";
-		chatIcon = new ImageIcon(getClass().getResource("image/VaultBoyIcon.png"));
+		chatIcon = new ImageIcon(getClass().getResource("images/VaultBoyIcon.jpg"));
 	}
 	/**
 	 * 
@@ -27,7 +27,9 @@ public class ChatView
 	{
 		String userInput = "";
 		
-		userInput = JOptionPane.showInputDialog(null, displayText, windowMessage, JOptionPane.INFORMATION_MESSAGE, chatIcon, null, "Type here please!").toString();
+		userInput = JOptionPane.showInputDialog(null, displayText, windowMessage, 
+												JOptionPane.INFORMATION_MESSAGE, chatIcon, null, 
+												"Type here please!").toString();
 		
 		return userInput;
 	}
@@ -38,7 +40,7 @@ public class ChatView
 	 */
 	public void displayText(String displayText)
 	{
-		JOptionPane.showInputDialog(null, displayText);
+		JOptionPane.showMessageDialog(null, displayText, windowMessage, JOptionPane.PLAIN_MESSAGE, chatIcon);
 	}
 
 	public String collectUserText(String string) {
