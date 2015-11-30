@@ -4,6 +4,7 @@ import chat.controller.ChatController;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Color;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -21,6 +22,8 @@ public class ChatPanel extends JPanel
 	private JTextArea chatArea;
 	private JLabel promptLabel;
 	private SpringLayout baseLayout;
+	private JTextField typingField;
+	
 	
 	public ChatPanel(ChatController baseController)
 	{
@@ -40,6 +43,8 @@ public class ChatPanel extends JPanel
 		this.setLayout(baseLayout);
 		this.add(firstButton);
 		this.add(firstTextField);
+		this.setBackground(Color.GREEN);
+		
 
 	}
 	
