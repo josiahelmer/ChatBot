@@ -1,9 +1,12 @@
 package chat.view;
 
 import chat.controller.ChatController;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -35,15 +38,30 @@ public class ChatPanel extends JPanel
 	private void setupPanel()
 	{
 		this.setLayout(baseLayout);
+		this.add(firstButton);
+		this.add(firstTextField);
 
 	}
+	
 	private void setupLayout()
 	{
 		
 	}
+	
 	private void setupListeners()
 	{
-		
+		firstButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				firstTextField.setText("don't click it");
+			}
+		});
+	}
+
+	public JTextField getTextField()
+	{
+		return null;
 	}
 	
 }
