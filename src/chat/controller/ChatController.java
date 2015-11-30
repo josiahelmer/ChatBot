@@ -3,43 +3,46 @@ package chat.controller;
 
 import chat.model.ChatBot;
 import chat.view.ChatView;
+import chat.view.ChatFrame;
 
 
 
 public class ChatController
 {
-	private ChatBot simpleBot;
-	private ChatView display;
+	private ChatBot Chatbot;
+	private ChatView ChatView;
+	private ChatFrame baseFrame;
 	
 	public ChatController()
 	{
-		display = new ChatView();
-		String user = display.collectUserText("What is your name?");
-		simpleBot = new ChatBot(user);
+		ChatView = new ChatView();
+		String user = ChatView.collectUserText("What is your name?");
+		Chatbot = new ChatBot(user);
+		baseFrame = new ChatFrame(this);
 	}
 	
 	public void start()
 	
 	{
-		display.displayText("Hello" + simpleBot.getUserName());
+		ChatView.displayText("Hello" + Chatbot.getUserName());
 		chat();
 	}
 	
 	private void chat()
 	{
-		String conversation = display.collectUserText("What would you like to talk about today?");
-		while(simpleBot.lengthChecker(conversation))
+		String conversation = ChatView.collectUserText("What would you like to talk about today?");
+		while(Chatbot.lengthChecker(conversation))
 		{
-			if(simpleBot.lengthChecker(conversation))
+			if(Chatbot.lengthChecker(conversation))
 			{
-				display.displayText("Wow, I had no idea you loved " + simpleBot.getContent());
+				ChatView.displayText("Wow, I had no idea you loved " + Chatbot.getContent());
 			}
-			else if(simpleBot.memeChecker(conversation))
+			else if(Chatbot.memeChecker(conversation))
 			{
-				display.displayText("No meme?");
+				ChatView.displayText("No meme?");
 			}
 			
-			conversation = display.collectUserText(conversation);
+			conversation = ChatView.collectUserText(conversation);
 		}
 	}
 	
@@ -47,6 +50,37 @@ public class ChatController
 	{
 		
 	}
-	
+
+	public ChatBot getChatbot()
+	{
+		return Chatbot;
+	}
+
+	public void setChatbot(ChatBot Chatbot)
+	{
+		this.Chatbot = Chatbot;
+	}
+
+	public ChatView getChatView()
+	{
+		return ChatView;
+	}
+
+	public void setChatView(ChatView ChatView)
+	{
+		this.ChatView = ChatView;
+	}
+
+	public ChatFrame getBaseFrame()
+	{
+		return baseFrame;
+	}
+
+	public void setBaseFrame(ChatFrame baseFrame)
+	{
+		this.baseFrame = baseFrame;
+	}
+
+
 	
 }

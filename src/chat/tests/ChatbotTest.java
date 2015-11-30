@@ -1,6 +1,6 @@
 package chat.tests;
 
-public class ChatbotTest
+public class ChatBotTest
 {
 
 }
