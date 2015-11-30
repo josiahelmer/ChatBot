@@ -2,7 +2,7 @@ package chat.view;
 
 import javax.swing.JFrame;
 import chat.controller.ChatController;
-
+import chat.view.ChatPanel;
 
 
 public class ChatFrame extends JFrame
@@ -15,6 +15,7 @@ public class ChatFrame extends JFrame
 	{
 		this.baseController = baseController;
 		basePanel = new ChatPanel(baseController);
+		
 		setupFrame();
 	}
 	
