@@ -7,60 +7,69 @@ import chat.view.ChatFrame;
 
 public class ChatController
 {
-	private ChatBot Chatbot;
-	private ChatView ChatView;
+	private ChatBot Simplebot;
+	private ChatView Display;
 	private ChatFrame baseFrame;
 	
 	
 	public ChatController()
 	{
-		ChatView = new ChatView();
-		String user = ChatView.collectUserText("What is your name?");
-		Chatbot = new ChatBot(user);
+		Display = new ChatView();
+		String user = Display.collectUserText("What is your name?");
+		Simplebot = new ChatBot(user);
 		baseFrame = new ChatFrame(this);
 	}
 	
 	public void start()
 	
 	{
-		ChatView.displayText("Hello" + Chatbot.getUserName());
-		chat();
+		Display.displayText("Hello" + Simplebot.getUserName());
+		//chat();
 	}
 	
 	private void chat()
 	{
-		String conversation = ChatView.collectUserText("What would you like to talk about today?");
-		while(Chatbot.lengthChecker(conversation))
+		String conversation = Display.collectUserText("What would you like to talk about today?");
+		while(Simplebot.lengthChecker(conversation))
 		{
 			
 			conversation = ChatBot.processConversation(conversation);
-			conversation = ChatView.collectUserText(conversation);
+			conversation = Display.collectUserText(conversation);
 		}
+	}
+	public String fromUserToChatbot(String conversation)
+	{
+		String botResponse = "";
+		
+		botResponse = ChatBot.processConversation(conversation);
+		
+		return botResponse;
 	}
 	
 	private void shutDown()
 	{
-		
+		Display.displayText("Goodbye, " + ChatBot.getUserName() + "it has been my pleasure to talk with you");
+		System.exit(0);
 	}
 
-	public ChatBot getChatbot()
+	public ChatBot getSimplebot()
 	{
-		return Chatbot;
+		return Simplebot;
 	}
 
-	public void setChatbot(ChatBot Chatbot)
+	public void setSimplebot(ChatBot SimpleBot)
 	{
-		this.Chatbot = Chatbot;
+		this.Simplebot = Simplebot;
 	}
 
-	public ChatView getChatView()
+	public ChatView getDisplay()
 	{
-		return ChatView;
+		return Display;
 	}
 
-	public void setChatView(ChatView ChatView)
+	public void setDisplay(ChatView Display)
 	{
-		this.ChatView = ChatView;
+		this.Display = Display;
 	}
 
 	public ChatFrame getBaseFrame()

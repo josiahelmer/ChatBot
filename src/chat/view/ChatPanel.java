@@ -23,7 +23,7 @@ public class ChatPanel extends JPanel
 	private JLabel promptLabel;
 	private SpringLayout baseLayout;
 	private JTextField typingField;
-	private JButton sumbitButton;
+	
 	
 	
 	public ChatPanel(ChatController baseController)
@@ -31,7 +31,9 @@ public class ChatPanel extends JPanel
 		this.baseController = baseController;
 		baseLayout = new SpringLayout();
 		firstButton = new  JButton("Do not click the button");
+		promptLabel = new JLabel("Josiah's chatbot");
 		firstTextField = new JTextField("You can type words in here");
+		chatArea = new JTextArea(10,30);
 		
 		setupPanel();
 		setupLayout();
@@ -45,24 +47,42 @@ public class ChatPanel extends JPanel
 		this.add(firstButton);
 		this.add(firstTextField);
 		this.setBackground(Color.GREEN);
-		this.add(sumbitButton);
+		this.add(promptLabel);
+		this.add(chatArea);
+		chatArea.setEnabled(false);
+		typingField.setToolTipText("");
 		
 
 	}
 	
 	private void setupLayout()
 	{
-		
+		baseLayout.putConstraint(SpringLayout.NORTH, firstTextField, 67, SpringLayout.SOUTH, firstButton);
+		baseLayout.putConstraint(SpringLayout.WEST, firstTextField, 126, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, firstButton, 74, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, firstButton, 113, SpringLayout.WEST, this);
 	}
 	
 	private void setupListeners()
 	{
 		
-		sumbitButton.addActionListener(new ActionListener()
+		firstButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				//Grab user text
+				//Grab user text X
+				//send the text to the controller X
+				//displays users text X
+				//Give text to chatbot to process X
+				//get chatbots anwer X
+				//dsplay answer X
+				//clear user field X
+				String userText = typingField.getText();
+				String response = baseController.fromUserToChatbot(userText);
+				chatArea.append("\nUser" + userText);
+				chatArea.append("\nChatbot:" + response);
+				typingField.setText("");
+				
 			}
 		});
 	}

@@ -97,6 +97,13 @@ public class ChatBot
 		return hasContent;
 	}
 	
+	public boolean keyboardMashChecker(String currentInput)
+	{
+	 boolean isMash = false;
+	 
+	 return isMash;
+	}
+	
 	/**
 	 * Checks if supplied String matches ANY of the topics in the politicalTopicsList. Returns
 	 * true if it does find a match and false if it does not match.
@@ -136,8 +143,13 @@ public class ChatBot
 	 */
 	public String processQuestion(String currentInput)
 	{
-		String backTalk = "";
+		String backTalk = " oh, what ";
 		int randomTopic =(int) (Math.random() * 5); //Generates a rendom number betwwen 0 and 4
+		
+		if(keyboardMashChecker(currentInput))
+		{
+			return "Stop mashing the keyboard!!";
+		}
 		
 		switch (randomTopic)
 		{
@@ -145,6 +157,10 @@ public class ChatBot
 			if(contentChecker(currentInput))
 			{
 				backTalk = "Thats a great topic! What else are you into?";
+			}
+			else
+			{
+				backTalk = "you realy should talk";
 			}
 			break;
 		case 1:
@@ -178,7 +194,7 @@ public class ChatBot
 		return backTalk;
 		
 	}
-	public String getUserName()
+	public static String getUserName()
 	{
 		return null;
 	}
