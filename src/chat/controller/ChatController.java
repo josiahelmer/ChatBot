@@ -5,13 +5,12 @@ import chat.model.ChatBot;
 import chat.view.ChatView;
 import chat.view.ChatFrame;
 
-
-
 public class ChatController
 {
 	private ChatBot Chatbot;
 	private ChatView ChatView;
 	private ChatFrame baseFrame;
+	
 	
 	public ChatController()
 	{
@@ -33,15 +32,8 @@ public class ChatController
 		String conversation = ChatView.collectUserText("What would you like to talk about today?");
 		while(Chatbot.lengthChecker(conversation))
 		{
-			if(Chatbot.lengthChecker(conversation))
-			{
-				ChatView.displayText("Wow, I had no idea you loved " + Chatbot.getContent());
-			}
-			else if(Chatbot.memeChecker(conversation))
-			{
-				ChatView.displayText("No meme?");
-			}
 			
+			conversation = ChatBot.processConversation(conversation);
 			conversation = ChatView.collectUserText(conversation);
 		}
 	}

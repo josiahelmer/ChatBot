@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class ChatBot
 {
 	private ArrayList<String> memesList;
-	private ArrayList<String> politicalTopicList;
+	private ArrayList<String> politicaltopicList;
 	private String userName;
 	private String content;
 	private String Josiah;
@@ -25,7 +25,7 @@ public class ChatBot
 	public ChatBot(String userName)
 	{
 		this.memesList = new ArrayList<String>();
-		this.politicalTopicList = new ArrayList<String>();
+		this.politicaltopicList = new ArrayList<String>();
 		this.userName = Josiah;
 		this.content = "Josiah";
 	}
@@ -48,7 +48,8 @@ public class ChatBot
 
 	private void buildPoliticalTopicsList()
 	{
-		
+		this.politicaltopicList.add("");
+		this.politicaltopicList.add("");
 	}
 	
 	/**
@@ -216,5 +217,10 @@ public class ChatBot
 	public void setContent(String content)
 	{
 		
+	}
+
+	public static String processConversation(String conversation)
+	{
+		return null;
 	}
 }

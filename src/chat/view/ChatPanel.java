@@ -23,6 +23,7 @@ public class ChatPanel extends JPanel
 	private JLabel promptLabel;
 	private SpringLayout baseLayout;
 	private JTextField typingField;
+	private JButton sumbitButton;
 	
 	
 	public ChatPanel(ChatController baseController)
@@ -44,6 +45,7 @@ public class ChatPanel extends JPanel
 		this.add(firstButton);
 		this.add(firstTextField);
 		this.setBackground(Color.GREEN);
+		this.add(sumbitButton);
 		
 
 	}
@@ -55,11 +57,12 @@ public class ChatPanel extends JPanel
 	
 	private void setupListeners()
 	{
-		firstButton.addActionListener(new ActionListener()
+		
+		sumbitButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				firstTextField.setText("don't click it");
+				//Grab user text
 			}
 		});
 	}
