@@ -18,7 +18,6 @@ public class ChatPanel extends JPanel
 {
 	private ChatController baseController;
 	private JButton firstButton;
-	private JTextField firstTextField;
 	private JTextArea chatArea;
 	private JLabel promptLabel;
 	private SpringLayout baseLayout;
@@ -31,8 +30,10 @@ public class ChatPanel extends JPanel
 		this.baseController = baseController;
 		baseLayout = new SpringLayout();
 		firstButton = new  JButton("Do not click the button");
+		
 		promptLabel = new JLabel("Josiah's chatbot");
-		firstTextField = new JTextField("You can type words in here");
+		typingField = new JTextField("You can type words in here");
+
 		chatArea = new JTextArea(10,30);
 		
 		setupPanel();
@@ -45,7 +46,7 @@ public class ChatPanel extends JPanel
 	{
 		this.setLayout(baseLayout);
 		this.add(firstButton);
-		this.add(firstTextField);
+		this.add(typingField);
 		this.setBackground(Color.GREEN);
 		this.add(promptLabel);
 		this.add(chatArea);
@@ -57,10 +58,10 @@ public class ChatPanel extends JPanel
 	
 	private void setupLayout()
 	{
-		baseLayout.putConstraint(SpringLayout.NORTH, firstTextField, 67, SpringLayout.SOUTH, firstButton);
-		baseLayout.putConstraint(SpringLayout.WEST, firstTextField, 126, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, firstButton, 74, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.WEST, firstButton, 113, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, typingField, 183, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, firstButton, -10, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, firstButton, -10, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.WEST, typingField, 126, SpringLayout.WEST, this);
 	}
 	
 	private void setupListeners()

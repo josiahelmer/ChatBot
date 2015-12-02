@@ -112,7 +112,16 @@ public class ChatBot
 	 */
 	public boolean politicalTopicChecker(String currentInput)
 	{
-		return false;
+		boolean haspoliticalTopic = false;
+		
+		for(String politicaltopic: politicaltopicList)
+		{
+			if(currentInput.toLowerCase().contains(politicaltopic.toLowerCase()))
+			{
+				haspoliticalTopic = true;
+			}
+		}
+		return  haspoliticalTopic;
 	}
 	
 	
@@ -143,7 +152,7 @@ public class ChatBot
 	 */
 	public String processQuestion(String currentInput)
 	{
-		String backTalk = " oh, what ";
+		String backTalk = " oh, what else would you like talk about ";
 		int randomTopic =(int) (Math.random() * 5); //Generates a rendom number betwwen 0 and 4
 		
 		if(keyboardMashChecker(currentInput))
