@@ -28,9 +28,9 @@ public class ChatControllerTest
 	@Test
 	public void testChatController()
 	{
-		assertNotNull("Data member not initialized", testController.getChatbot());
-		assertNotNull("Data member not initialized", testController.getChatView());
-		assertTrue("Wrong display type", (testController.getChatView() instanceof ChatView));
+		assertNotNull("Data member not initialized", testController.getSimplebot());
+		assertNotNull("Data member not initialized", testController.getDisplay());
+		assertTrue("Wrong display type", (testController.getDisplay() instanceof ChatView));
 		assertTrue("Wrong Frame type",(testController.getBaseFrame() instanceof ChatFrame));
 		assertSame("wrong controller", testController, testController.getBaseFrame().getBaseController());
 	}
