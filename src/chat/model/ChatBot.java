@@ -11,9 +11,7 @@ import java.util.ArrayList;
 >>>>>>> Stashed changes
  */
 public class ChatBot
-/**
- * Declaring the chatbot datamembers
- */
+
 {
 	private ArrayList<String> memesList;
 	private ArrayList<String> politicaltopicList;
@@ -26,7 +24,9 @@ public class ChatBot
 	 * @param userName The username for the chatbot.
 	 */
 	public ChatBot(String UserName)
-	
+	/**
+	 * Naming the data members
+	 */
 	{
 		this.memesList = new ArrayList<String>();
 		this.politicaltopicList = new ArrayList<String>();
@@ -35,6 +35,9 @@ public class ChatBot
 	}
 	
 	private void buildMemesList()
+	/**
+	 * Building the memes list
+	 */
 	{
 		this.memesList.add("cute animals");
 		this.memesList.add("doge");
@@ -51,6 +54,9 @@ public class ChatBot
 	
 
 	private void buildPoliticalTopicsList()
+	/**
+	 * Building political Topics list
+	 */
 	{
 		this.politicaltopicList.add("Gun Control");
 		this.politicaltopicList.add("Gay Marriage");
@@ -215,11 +221,16 @@ public class ChatBot
 		return backTalk;
 		
 	}
+	/**
+	 * how you retrieve the username
+	 * @return
+	 */
 	public static String getUserName()
 	{
-		return null;
+		return getUserName();
 	}
 	
+
 	/**
 	 * Returns the content area for this Chatbot instance.
 	 * @return The content area for this Chatbot instance.

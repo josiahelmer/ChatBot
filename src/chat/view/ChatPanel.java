@@ -29,7 +29,7 @@ public class ChatPanel extends JPanel
 	{
 		this.baseController = baseController;
 		baseLayout = new SpringLayout();
-		firstButton = new  JButton("Do not click the button");
+		firstButton = new  JButton("Enter");
 		
 		promptLabel = new JLabel("Josiah's chatbot");
 		typingField = new JTextField("You can type words in here");
@@ -43,6 +43,9 @@ public class ChatPanel extends JPanel
 	}
 	
 	private void setupPanel()
+	/**
+	 * delcaring the data member inside the class
+	 */
 	{
 		this.setLayout(baseLayout);
 		this.add(firstButton);
@@ -57,6 +60,9 @@ public class ChatPanel extends JPanel
 	}
 	
 	private void setupLayout()
+	/**
+	 * auto generated code frm the design tab. Set the placment of the objects
+	 */
 	{
 		baseLayout.putConstraint(SpringLayout.NORTH, typingField, 183, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.SOUTH, firstButton, -10, SpringLayout.SOUTH, this);
@@ -68,6 +74,9 @@ public class ChatPanel extends JPanel
 	{
 		
 		firstButton.addActionListener(new ActionListener()
+		/**
+		 * sets parameters for the data members
+		 */
 		{
 			public void actionPerformed(ActionEvent click)
 			{

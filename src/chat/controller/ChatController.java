@@ -66,33 +66,52 @@ public class ChatController
 		System.exit(0);
 	}
 	/**
-	 * Getters and Setters
+	 * Getter method for simplebot
 	 * @return
 	 */
 	public ChatBot getSimplebot()
 	{
 		return Simplebot;
 	}
+	/**
+	 * Setter method for simplebot
+	 * @param SimpleBot
+	 */
 
 	public void setSimplebot(ChatBot SimpleBot)
 	{
 		this.Simplebot = Simplebot;
 	}
+	/**
+	 *Getter method for display
+	 * @return
+	 */
 
 	public ChatView getDisplay()
 	{
 		return Display;
 	}
-
+	/**
+	 * setter method for display
+	 * @param Display
+	 */
 	public void setDisplay(ChatView Display)
 	{
 		this.Display = Display;
 	}
+	/**
+	 * getter for base frame
+	 * @return
+	 */
 
 	public ChatFrame getBaseFrame()
 	{
 		return baseFrame;
 	}
+	/**
+	 * setter for base frame
+	 * @param baseFrame
+	 */
 
 	public void setBaseFrame(ChatFrame baseFrame)
 	{
