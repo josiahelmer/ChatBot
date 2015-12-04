@@ -11,10 +11,13 @@ import java.util.ArrayList;
 >>>>>>> Stashed changes
  */
 public class ChatBot
+/**
+ * Declaring the chatbot datamembers
+ */
 {
 	private ArrayList<String> memesList;
 	private ArrayList<String> politicaltopicList;
-	private String userName;
+	private String UserName;
 	private String content;
 	private String Josiah;
 	
@@ -22,11 +25,12 @@ public class ChatBot
 	 * Creates an instance of the Chatbot with the supplied username.
 	 * @param userName The username for the chatbot.
 	 */
-	public ChatBot(String userName)
+	public ChatBot(String UserName)
+	
 	{
 		this.memesList = new ArrayList<String>();
 		this.politicaltopicList = new ArrayList<String>();
-		this.userName = Josiah;
+		this.UserName = Josiah;
 		this.content = "Josiah";
 	}
 	
@@ -48,8 +52,16 @@ public class ChatBot
 
 	private void buildPoliticalTopicsList()
 	{
-		this.politicaltopicList.add("");
-		this.politicaltopicList.add("");
+		this.politicaltopicList.add("Gun Control");
+		this.politicaltopicList.add("Gay Marriage");
+		this.politicaltopicList.add("Affirmative Action");
+		this.politicaltopicList.add("Drug policies");
+		this.politicaltopicList.add("Term limits");
+		this.politicaltopicList.add("Campaign Finance");
+		this.politicaltopicList.add("Social Security");
+		this.politicaltopicList.add("Net Neutrality");
+		this.politicaltopicList.add("Patriot act");
+		this.politicaltopicList.add("Abortion");
 	}
 	
 	/**
