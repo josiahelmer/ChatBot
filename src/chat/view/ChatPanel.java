@@ -22,7 +22,7 @@ public class ChatPanel extends JPanel
 	private JLabel promptLabel;
 	private SpringLayout baseLayout;
 	private JTextField typingField;
-	
+	private JPanel BasePanel;
 	
 	
 	public ChatPanel(ChatController baseController)
@@ -30,7 +30,7 @@ public class ChatPanel extends JPanel
 		this.baseController = baseController;
 		baseLayout = new SpringLayout();
 		firstButton = new  JButton("Enter");
-		
+		BasePanel = new JPanel();
 		promptLabel = new JLabel("Josiah's chatbot");
 		typingField = new JTextField("You can type words in here");
 
@@ -47,6 +47,7 @@ public class ChatPanel extends JPanel
 	 * delcaring the data member inside the class
 	 */
 	{
+		this.setPanel(BasePanel);
 		this.setLayout(baseLayout);
 		this.add(firstButton);
 		this.add(typingField);
@@ -59,6 +60,12 @@ public class ChatPanel extends JPanel
 
 	}
 	
+	private void setPanel(JPanel basePanel2)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
 	private void setupLayout()
 	/**
 	 * auto generated code frm the design tab. Set the placment of the objects
@@ -75,7 +82,7 @@ public class ChatPanel extends JPanel
 		
 		firstButton.addActionListener(new ActionListener()
 		/**
-		 * sets parameters for the data members
+		 * sets parameters for the data members-
 		 */
 		{
 			public void actionPerformed(ActionEvent click)
