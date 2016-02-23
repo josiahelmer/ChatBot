@@ -6,22 +6,25 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Color;
 
+import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.SpringLayout;
 
 public class ChatPanel extends JPanel
 {
 	private ChatController baseController;
+	private JScrollPane textPane;
 	private JButton firstButton;
 	private JTextArea chatArea;
 	private JLabel promptLabel;
 	private SpringLayout baseLayout;
-	private JTextField typingField;
+	private JTextField TextField;
 	private JPanel BasePanel;
 	
 	
@@ -30,16 +33,31 @@ public class ChatPanel extends JPanel
 		this.baseController = baseController;
 		baseLayout = new SpringLayout();
 		firstButton = new  JButton("Enter");
+		baseLayout.putConstraint(SpringLayout.WEST, firstButton, 10, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, firstButton, -10, SpringLayout.SOUTH, this);
 		BasePanel = new JPanel();
 		promptLabel = new JLabel("Josiah's chatbot");
-		typingField = new JTextField("You can type words in here");
-
+		TextField = new JTextField("You can type words in here");
+		baseLayout.putConstraint(SpringLayout.NORTH, TextField, -1, SpringLayout.NORTH, firstButton);
+		baseLayout.putConstraint(SpringLayout.WEST, TextField, 63, SpringLayout.EAST, firstButton);
 		chatArea = new JTextArea(10,30);
 		
+		setupChatPane();
 		setupPanel();
 		setupLayout();
 		setupListeners();
 
+	}
+	
+	private void setupChatPane()
+	{
+		chatArea.setLineWrap(true);
+		chatArea.setWrapStyleWord(true);
+		chatArea.setEnabled(false);
+		chatArea.setEditable(false);
+		textPane = new JScrollPane(chatArea);
+		textPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		textPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 	}
 	
 	private void setupPanel()
@@ -50,12 +68,11 @@ public class ChatPanel extends JPanel
 		this.setPanel(BasePanel);
 		this.setLayout(baseLayout);
 		this.add(firstButton);
-		this.add(typingField);
+		this.add(TextField);
 		this.setBackground(Color.GREEN);
 		this.add(promptLabel);
-		this.add(chatArea);
 		chatArea.setEnabled(false);
-		typingField.setToolTipText("");
+		TextField.setToolTipText("");
 		
 
 	}
@@ -71,10 +88,6 @@ public class ChatPanel extends JPanel
 	 * auto generated code frm the design tab. Set the placment of the objects
 	 */
 	{
-		baseLayout.putConstraint(SpringLayout.NORTH, typingField, 183, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.SOUTH, firstButton, -10, SpringLayout.SOUTH, this);
-		baseLayout.putConstraint(SpringLayout.EAST, firstButton, -10, SpringLayout.EAST, this);
-		baseLayout.putConstraint(SpringLayout.WEST, typingField, 126, SpringLayout.WEST, this);
 	}
 	
 	private void setupListeners()
@@ -94,11 +107,11 @@ public class ChatPanel extends JPanel
 				//get chatbots anwer X
 				//dsplay answer X
 				//clear user field X
-				String userText = typingField.getText();
+				String userText = TextField.getText();
 				String response = baseController.fromUserToChatbot(userText);
 				chatArea.append("\nUser" + userText);
 				chatArea.append("\nChatbot:" + response);
-				typingField.setText("");
+				TextField.setText("");
 				
 			}
 		});

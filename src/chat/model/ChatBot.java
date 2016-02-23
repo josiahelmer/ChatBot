@@ -32,6 +32,9 @@ public class ChatBot
 		this.politicaltopicList = new ArrayList<String>();
 		this.UserName = Josiah;
 		this.content = "Josiah";
+		
+		buildMemesList();
+		buildPoliticalTopicsList();
 	}
 	
 	private void buildMemesList()
@@ -83,7 +86,7 @@ public class ChatBot
 		{
 			if(currentInput.length() > 0)
 			{
-				hasLength = true;
+				return true;
 			}
 		}
 		
@@ -132,9 +135,9 @@ public class ChatBot
 	{
 		boolean haspoliticalTopic = false;
 		
-		for(String politicaltopic: politicaltopicList)
+		for(String politics: politicaltopicList)
 		{
-			if(currentInput.toLowerCase().contains(politicaltopic.toLowerCase()))
+			if(currentInput.toLowerCase().contains(politics.toLowerCase()))
 			{
 				haspoliticalTopic = true;
 			}
@@ -164,10 +167,7 @@ public class ChatBot
 		return hasMeme;
 	}
 	
-	/**
-	 * Returns the username of this Chatbot instance.
-	 * @return The username of the Chatbot.
-	 */
+
 	public String processQuestion(String currentInput)
 	{
 		String backTalk = " oh, what else would you like talk about ";
@@ -246,7 +246,7 @@ public class ChatBot
 	 */
 	public ArrayList<String> getMemesList()
 	{
-		return null;
+		return memesList;
 	}
 	
 	/**
@@ -255,7 +255,7 @@ public class ChatBot
 	 */
 	public ArrayList<String> getPoliticalTopicList()
 	{
-		return null;
+		return politicaltopicList;
 	}
 	
 	/**
@@ -264,7 +264,7 @@ public class ChatBot
 	 */
 	public void setContent(String content)
 	{
-		
+		this.content = content;
 	}
 
 	public static String processConversation(String conversation)
