@@ -15,7 +15,7 @@ public class ChatBot
 {
 	private ArrayList<String> memesList;
 	private ArrayList<String> politicaltopicList;
-	private String UserName;
+	private static String UserName;
 	private String content;
 	private String Josiah;
 	
@@ -227,7 +227,7 @@ public class ChatBot
 	 */
 	public static String getUserName()
 	{
-		return getUserName();
+		return UserName;
 	}
 	
 

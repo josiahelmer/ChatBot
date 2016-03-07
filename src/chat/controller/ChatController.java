@@ -89,7 +89,6 @@ public class ChatController
 	 *Getter method for display
 	 * @return
 	 */
-
 	public ChatView getDisplay()
 	{
 		return Display;
@@ -119,6 +118,11 @@ public class ChatController
 	public void setBaseFrame(ChatFrame baseFrame)
 	{
 		this.baseFrame = baseFrame;
+	}
+	
+	public void sendTweet(String tweet)
+	{
+		myTwitter.sendTweet(tweet);
 	}
 
 	public void handleErrors(String error)

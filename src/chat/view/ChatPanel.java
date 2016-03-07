@@ -26,6 +26,7 @@ public class ChatPanel extends JPanel
 	private SpringLayout baseLayout;
 	private JTextField TextField;
 	private JPanel BasePanel;
+	private JButton tweetButton;
 	
 	
 	public ChatPanel(ChatController baseController)
@@ -41,6 +42,7 @@ public class ChatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.NORTH, TextField, -1, SpringLayout.NORTH, firstButton);
 		baseLayout.putConstraint(SpringLayout.WEST, TextField, 63, SpringLayout.EAST, firstButton);
 		chatArea = new JTextArea(10,30);
+		tweetButton = new JButton("Tweet");
 		
 		setupChatPane();
 		setupPanel();
@@ -71,6 +73,7 @@ public class ChatPanel extends JPanel
 		this.add(TextField);
 		this.setBackground(Color.GREEN);
 		this.add(promptLabel);
+		add(tweetButton);
 		chatArea.setEnabled(false);
 		TextField.setToolTipText("");
 		
@@ -115,6 +118,16 @@ public class ChatPanel extends JPanel
 				
 			}
 		});
+		tweetButton.addActionListener(new ActionListener()
+		{
+
+			public void actionPerformed(ActionEvent clicked)
+			{
+				baseController.sendTweet("");
+			}
+			
+		});
+		
 	}
 
 	public JTextField getTextField()
