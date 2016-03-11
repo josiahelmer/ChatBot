@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Color;
 
+import javax.swing.AbstractButton;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -27,7 +28,7 @@ public class ChatPanel extends JPanel
 	private JTextField TextField;
 	private JPanel BasePanel;
 	private JButton tweetButton;
-	
+	private JButton analyzeTwitterButton;	
 	
 	public ChatPanel(ChatController baseController)
 	{
@@ -128,7 +129,19 @@ public class ChatPanel extends JPanel
 			
 		});
 		
+
+		analyzeTwitterButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String user = TextField.getText();
+				String results = baseController.analyze(user);
+				chatArea.setText(results);
+			}
+		});
+		
 	}
+
 
 	public JTextField getTextField()
 	{
