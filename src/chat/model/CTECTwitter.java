@@ -1,5 +1,7 @@
 package chat.model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 import twitter4j.*;
@@ -67,11 +69,11 @@ public class CTECTwitter
 		}
 	}
 
-	private void removeCommonEnglishWords(ArrayList<String> wordsList2)
+	private void removeCommonEnglishWords(ArrayList<String> wordList)
 	{
 		String[] boringWords = importWordsToArray();
 		
-		for (int cound = 0; count < wordList.size(); count++)
+		for (int count = 0; count < wordList.size(); count++)
 		{
 			for (int removeSpot = 0; removeSpot < boringWords.length; removeSpot++)
 			{
@@ -79,12 +81,43 @@ public class CTECTwitter
 				{
 					wordList.remove(count);
 					count--;
-					emoveSpot = boringWords.length;
+					removeSpot = boringWords.length;
 				}
 			}
 		}
 		
 	}
+	private String[] importWordsToArray()
+	{
+		String[] boringWords;
+		int wordCount = 0;
+		try
+		{
+			Scanner wordFile = new Scanner(new File("commonWords.txt"));
+			while (wordFile.hasNext())
+				{
+					wordCount++;
+					wordFile.next();
+				}
+				wordFile.reset();
+				boringWords = new String[wordCount];
+				int boringWordCount = 0;
+				while (wordFile.hasNext())
+				{
+					boringWords[boringWordCount] = wordFile.next();
+					boringWordCount++;
+				}
+				wordFile.close();
+			}
+			catch (FileNotFoundException error)
+			{
+				baseController.handleErrors(error.getMessage());
+				return new String[0];
+			}
+			return boringWords;
+		
+	}
+
 
 	private String removePunctuation(String currentString)
 	{
