@@ -69,7 +69,20 @@ public class CTECTwitter
 
 	private void removeCommonEnglishWords(ArrayList<String> wordsList2)
 	{
-
+		String[] boringWords = importWordsToArray();
+		
+		for (int cound = 0; count < wordList.size(); count++)
+		{
+			for (int removeSpot = 0; removeSpot < boringWords.length; removeSpot++)
+			{
+				if (wordList.get(count).equalsIgnoreCase(boringWords[removeSpot]))
+				{
+					wordList.remove(count);
+					count--;
+					emoveSpot = boringWords.length;
+				}
+			}
+		}
 		
 	}
 
