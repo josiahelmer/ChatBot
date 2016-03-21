@@ -35,15 +35,14 @@ public class ChatPanel extends JPanel
 		this.baseController = baseController;
 		baseLayout = new SpringLayout();
 		firstButton = new  JButton("Enter");
-		baseLayout.putConstraint(SpringLayout.WEST, firstButton, 10, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.SOUTH, firstButton, -10, SpringLayout.SOUTH, this);
 		BasePanel = new JPanel();
 		promptLabel = new JLabel("Josiah's chatbot");
 		TextField = new JTextField("You can type words in here");
-		baseLayout.putConstraint(SpringLayout.NORTH, TextField, -1, SpringLayout.NORTH, firstButton);
-		baseLayout.putConstraint(SpringLayout.WEST, TextField, 63, SpringLayout.EAST, firstButton);
+	
 		chatArea = new JTextArea(10,30);
 		tweetButton = new JButton("Tweet");
+
+		analyzeTwitterButton = new JButton("");
 		
 		setupChatPane();
 		setupPanel();
@@ -92,6 +91,14 @@ public class ChatPanel extends JPanel
 	 * auto generated code frm the design tab. Set the placment of the objects
 	 */
 	{
+		baseLayout.putConstraint(SpringLayout.NORTH, tweetButton, 0, SpringLayout.NORTH, firstButton);
+		baseLayout.putConstraint(SpringLayout.EAST, tweetButton, 0, SpringLayout.EAST, promptLabel);
+		baseLayout.putConstraint(SpringLayout.NORTH, TextField, -1, SpringLayout.NORTH, firstButton);
+		baseLayout.putConstraint(SpringLayout.WEST, TextField, 63, SpringLayout.EAST, firstButton);
+		baseLayout.putConstraint(SpringLayout.NORTH, promptLabel, 5, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, promptLabel, -23, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.WEST, firstButton, 10, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, firstButton, -10, SpringLayout.SOUTH, this);
 	}
 	
 	private void setupListeners()
