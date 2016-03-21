@@ -66,6 +66,8 @@ public class CTECTwitter
 	
 	public void loadTweets(String twitterHandle) throws TwitterException
 	{
+		statusList.clear();
+		wordsList.clear();
 		Paging statusPage = new Paging(1, 200);
 		int page = 1;
 		while (page <= 10)
@@ -161,5 +163,28 @@ public class CTECTwitter
 			}
 		}
 		return scrubbedString;
+	}
+	public String sampleInvestigation()
+	{
+		String results = "";
+		Query query = new Query("marathon");
+		query.setCount(100);
+		query.setGeoCode(new GeoLocation(40.587521, -111.869178), 5, Query.MILES);
+		query.setSince("2016-1-1");
+		try
+		{
+			QueryResult result = chatbotTwitter.search(query);
+			results.concat("Count : " + result.getTweets().size());
+			for (Status tweet : result.getTweets())
+			{
+				results.concat("@" + tweet.getUser().getName() + ":" + tweet.getText() + "\n");
+			}
+		}
+		catch (TwitterException error)
+		{
+			error.printStackTrace();
+		}
+		
+		return results;
 	}
 }
